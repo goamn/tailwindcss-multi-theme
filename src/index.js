@@ -46,7 +46,8 @@ module.exports = ({ addVariant, theme }) => {
   }
 
   function generateDefaultVariant(themeVariant) {
-    const root = `.theme-${themeVariant} `
+    const extraDarkClass = themeVariant === 'dark' ? 'dark' : ''
+    const root = `.theme-${themeVariant} ${extraDarkClass} `
     addVariant(`${themeVariant}`, ({ modifySelectors, separator }) => {
       modifySelectors(({ selector }) => {
         return selectorParser((selectors) => {
